@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced Search</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body> 
+    <div class="nav">
+    <div id="google_nav_logo_container"> 
+        <img src="assets/google.png" id="google_nav_logo">
+    </div>
+       <a href="index.html">Search</a>
+       <a href="image.html">Image Search</a> 
+    </div>
+        <form id="advanced_form" action="https://google.com/search" name="f">
+            <h1 style="color: red; font-weight: 200; margin-left: 10px;">Advanced Search</h1>
+
+            <h2>Find pages with...</h2>
+
+    <div class="field">
+        <label for="field1" class="labels">all these words:</label>
+        <input type="text" class="textinput" id="field1" value=""  name="as_q">
+    </div>
+    <br>
+    <div class="field">
+        <label for="field2" class="labels">this exact word or phrase: </label>
+        <input type="text" class="textinput" id="field2" value=""  name="as_epq">
+    </div>
+    <br>
+    <div class="field">
+        <label for="field3" class="labels">any of this words: </label>
+        <input type="text" class="textinput" id="field3" value=""  name="as_oq">
+    </div>
+    <br>
+    <div class="field">
+        <label for="field4" class="labels">none of these words: </label>
+        <input type="text" class="textinput" id="field4" value=""  name="as_eq">
+    </div>
+    <br>
+    <div class="field">
+        <label for="field5" class="labels">numbers ranging from: </label>
+        <div class="input1">
+        <input type="text" id="field5" value=""  name="as_nlo">
+        <span class="seperator">to</span>
+        <input type="text" id="field5" value=""  name="as_nhi">
+        </div>
+    </div>
+    <input type="submit" value="advanced search" id="advanced_s_btn">
+</form>
+</body>
+</html>
