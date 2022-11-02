@@ -5,16 +5,17 @@
 {% endblock %}
 
 {% block body %}
-<form method="POST">
-{% csrf_token %}
-<div class="mb-3">
-    <label for="title_input" class="form-label">Title</label>
-    <input type="text" name="title" class="form-control" id="title_input">
-</div>
-<div class="mb-3">
-    <label for="content" class="form-label">Markdown For Page</label>
-<textarea name="content" class="form-control" row="4"></textarea>
-</div>
-<button class="btn btn-primary" type="submit">SAVE</button>
+<h1>Create Page</h1>
+<form method="POST" class="form-control" style="width:90%">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="title_input" class="form-label">Title</label>
+        <input type="text" name="title" class="form-control" id="title_input">
+    </div>
+    <div class="mb-3">
+        <label for="content" class="form-label">Markdown For Page</label>
+        <textarea name="content" class="form-control" rows="8"></textarea>
+    </div>
+    <button class="btn btn-primary" type="submit">SAVE</button>
 </form>
 {% endblock %}

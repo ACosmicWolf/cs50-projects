@@ -9,16 +9,10 @@ from fuzzywuzzy import process
 
 entries = util.list_entries()
 
-import random
-
 def index(request):
-    if request.method == "GET":
-        random_page = random.choice(entries)
-        print(random_page)
-    return render(request, "encyclopedia/index.html", {
-        "entries": entries,
-        "random_page": random_page
-    })
+    # to update index page after saving file
+    entries = util.list_entries()
+    return render(request, "encyclopedia/index.html",{"entries":entries})
 
 def title(request, title):
     if title in entries:
@@ -30,8 +24,11 @@ def title(request, title):
 def createpage(request):
     if request.method == "POST":
         title = request.POST.get("title")
-        content = request.POST.get("content")
-        util.save_entry(title, content)
+        if(util.get_entry(title)):
+            return render(request,"encyclopedia/entry_exists.html")
+        else:
+            content = request.POST.get("content")
+            util.save_entry(title, content)
     return  render(request, "encyclopedia/createpage.html")
    
 def edit(request, title):
@@ -41,6 +38,7 @@ def edit(request, title):
         return redirect("/wiki/"+title)
 
     content = util.get_entry(title)
+    print(content)
     return  render(request, "encyclopedia/editpage.html", {"title": title, "content": content})
 
 def search(request):

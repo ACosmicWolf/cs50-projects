@@ -7,16 +7,10 @@
 {% block body %}
     <h1>All Pages</h1>
 
-    <ul>
+    <ul class="list-group" style="width: 50%;">
         {% for entry in entries %}
-        <li><a href="wiki/{{ entry }}">{{ entry }}</a></li>
+        <li class="list-group-item"><a href="wiki/{{ entry }}">{{ entry }}</a></li>
         {% endfor %}
     </ul>
 
-
-    <script>
-        var entries = {{ entries|safe }}
-        
-        console.log(entries[Math.floor(Math.random() * entries.length)])
-    </script>
 {% endblock %}
